@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { html, css } from 'react-strict-dom';
+import { Platform, Linking } from 'react-native';
 
 /**
  * Application Style Definitions
@@ -19,6 +20,7 @@ const styles = css.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    paddingTop: 40
   },
   // Title styles
   title: {
@@ -52,9 +54,12 @@ const styles = css.create({
     padding: 24,
     marginTop: 24,
     marginBottom: 24,
-    width: 500,
-    maxWidth: 500,
+    width: "80vw",
+    maxWidth: "80vw",
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
   // Button styles
   button: {
@@ -87,10 +92,7 @@ const styles = css.create({
   },
   // Feature list styles
   featureList: {
-    width: 500,
-    maxWidth: 500,
-    marginTop: 16,
-    marginBottom: 16,
+    margin: 16
   },
   // Feature item styles
   featureItem: {
@@ -186,14 +188,23 @@ const App: React.FC = () => {
         {/* Footer */}
         <html.p style={styles.footer}>
           Powered by React Strict DOM • View{' '}
-          <html.a
-            href="https://facebook.github.io/react-strict-dom/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={styles.link}
-          >
-            Documentation
-          </html.a>
+          {Platform.OS === 'web' ? (
+            <html.a
+              href="https://facebook.github.io/react-strict-dom/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.link}
+            >
+              Documentation
+            </html.a>
+          ) : (
+            <html.span
+              style={styles.link}
+              onClick={() => Linking.openURL('https://facebook.github.io/react-strict-dom/')}
+            >
+              Documentation
+            </html.span>
+          )}
         </html.p>
       </html.div>
     </React.StrictMode>
