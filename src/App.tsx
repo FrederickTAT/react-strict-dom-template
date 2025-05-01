@@ -5,8 +5,9 @@ import { html, css } from 'react-strict-dom';
  * Application Style Definitions
  *
  * React Strict DOM uses css.create() to create style objects
- * On the web, these styles are compiled by StyleX into efficient CSS
+ * On the web, these styles are compiled by StyleX into efficient CSS without requiring react-native-web
  * On native platforms, these styles are converted to React Native style objects
+ * React Strict DOM handles all necessary transformations internally for both web and native platforms
  */
 const styles = css.create({
   // Main container styles
@@ -51,7 +52,7 @@ const styles = css.create({
     padding: 24,
     marginTop: 24,
     marginBottom: 24,
-    width: '100%',
+    width: 500,
     maxWidth: 500,
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   },
@@ -86,7 +87,7 @@ const styles = css.create({
   },
   // Feature list styles
   featureList: {
-    width: '100%',
+    width: 500,
     maxWidth: 500,
     marginTop: 16,
     marginBottom: 16,
@@ -120,7 +121,7 @@ const styles = css.create({
   // Link styles
   link: {
     color: '#007AFF',
-    textDecoration: 'none',
+    fontWeight: '500',
   },
 });
 
@@ -184,7 +185,7 @@ const App: React.FC = () => {
 
         {/* Footer */}
         <html.p style={styles.footer}>
-          Powered by React Strict DOM • View
+          Powered by React Strict DOM • View{' '}
           <html.a
             href="https://facebook.github.io/react-strict-dom/"
             target="_blank"

@@ -55,12 +55,27 @@ After starting, you can:
 - Press `i` to open the app in an iOS simulator (requires macOS)
 - Use the Expo Go app to scan the QR code and run on a physical device
 
+### Building for Production
+
+To build the web version of your application for production deployment:
+
+```bash
+# Using npm
+npm run build
+
+# Or using pnpm
+pnpm build
+```
+
+This will create a production-ready build in the `dist/` directory that can be deployed to any static hosting service.
+
 ## Project Features
 
 - **Clean Development Environment**: Removed all unnecessary dependencies like testing frameworks, code checking tools, etc.
 - **Focus on React Strict DOM**: Provides the simplest examples to help you understand the core concepts of RSD
-- **Cross-platform Support**: Supports Web, iOS, and Android platforms simultaneously
+- **Cross-platform Support**: Supports Web, iOS, and Android platforms simultaneously without requiring react-native-web
 - **TypeScript by Default**: Built-in TypeScript configuration for type safety and better developer experience
+- **Optimized Web Rendering**: React Strict DOM handles web transformations internally, eliminating the need for react-native-web
 
 ## Extending the Project
 
